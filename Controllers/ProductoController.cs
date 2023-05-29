@@ -35,12 +35,13 @@ namespace SistemasWeb01.Controllers
             if (imagen != null && imagen.Length > 0)
             {
                 var fileName = Path.GetFileName(imagen.FileName);
-                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\imagenes", fileName);
+                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/imagenes", fileName);
 
                 using (var stream = new FileStream(filePath, FileMode.Create))
                 {
                     await imagen.CopyToAsync(stream);
                 }
+
 
                 model.productoClass.imagen = fileName; // Guardamos el nombre de la imagen en el atributo imagen del modelo Producto
             }
