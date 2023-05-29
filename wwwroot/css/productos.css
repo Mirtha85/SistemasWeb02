@@ -1,0 +1,17 @@
+﻿body {
+    background-color:red;
+}
+
+
+.aNewProduct{
+    text-decoration:none;
+    margin-left:5%;
+    border:solid 1px blue;
+    color:blue;
+    padding:10px;
+    border-radius:10px;
+}
+.aNewProduct:hover{
+    background-color:blue;
+    color:whitesmoke;
+}

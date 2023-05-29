@@ -1,0 +1,90 @@
+﻿* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.contenedorCards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: white;
+}
+
+.contenedorCards:hover .cards {
+opacity: 0.5;
+}
+
+.contenedorCards:hover .cards:hover {
+    opacity: 1;
+}
+
+.cards {
+    overflow: hidden;
+    border-radius: 10px;
+    margin: 15px 15px;
+    min-width: 220px;
+    max-width: 275px;
+    height: 330px;
+    background-color: whitesmoke;
+    box-shadow: 0px 10px 1.5px blue;
+    transition: transform 0.2s ease-in-out;
+}
+
+.cards:hover {
+    box-shadow: 0px 0px 10px rgb(123, 121, 121);
+    transform: scale(1.05);
+}
+.imagenCard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../img/mesa.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.imagenCard > img {
+    padding: 5px 0px;
+    width: 180px;
+    height: 180px;
+}
+
+.texto > p {
+    margin:0px 5%;
+}
+
+.texto > p:first-child {
+    color: rgba(0, 0, 255, 0.775);
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.btnCards {
+    width: 90%;
+    padding: 10px;
+    font-size: 16px;
+    margin: 15px 5% 5px 5%;
+    transition: transform 0.2s ease-in-out;
+    color: blue;
+    border: solid blue 1px;
+    border-radius: 10px;
+}
+
+.btnCards:hover {
+    transform: scale(1.05);
+    background-color: blue;
+    color: whitesmoke;
+}
+
+.precio {
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 15px;
+    font-weight: bold;
+    opacity: 0.7;
+}

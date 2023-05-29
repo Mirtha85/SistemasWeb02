@@ -1,0 +1,39 @@
+﻿@model categoria
+
+<form asp-action="editar" method="post" role="form">
+    <h3 class="my-5">
+        Adding new category for your produts.
+    </h3>
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="col-6">
+        <div class="row g-2">
+            <div class="col-12" style="display:none;">
+                <label asp-for="categoriaId" class="form-label"></label>
+                <input asp-for="categoriaId" class="form-control" value="@Model.categoriaId" />
+                <span asp-validation-for="categoriaId" class="text-danger"></span>
+            </div>
+
+            <div class="col-12">
+                <label asp-for="categoriaNombre" class="form-label"></label>
+                <input asp-for="categoriaNombre" class="form-control" value="@Model.categoriaNombre" />
+                <span asp-validation-for="categoriaNombre" class="text-danger"></span>
+            </div>
+            <div class="col-12">
+                <label asp-for="descripcion" class="form-label"></label>
+                <input asp-for="descripcion" class="form-control" value="@Model.descripcion" />
+                <span asp-validation-for="descripcion" class="text-danger"></span>
+            </div>
+
+
+            <div class="mt-2">
+                <div class="col-md-offset-2 col-md-5">
+                    <input type="submit" class="btn btn-secondary" value="Guardar" />
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</form>

@@ -1,0 +1,25 @@
+﻿
+@model IEnumerable<producto>
+
+<p class="aProduct">
+    <a asp-action="Agregar" class="aNewProduct">Create New Product</a>
+</p>
+
+<div class="contenedorCards">
+    @foreach (var item in Model)
+    {
+        <div class="cards">
+            <p class="precio">@item.precio Bs.</p>
+            <div class="imagenCard">
+                <img src="~/imagenes/@item.imagen" alt="">
+            </div>
+            <div class="texto">
+                <p class="tituloCard">@item.productoNombre</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, excepturi.</p>
+                <button class="btnCards">Comprar</button>
+            </div>
+        </div>
+    }
+</div>
+
+

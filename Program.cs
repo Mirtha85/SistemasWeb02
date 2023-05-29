@@ -8,6 +8,8 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IPieRepository, PieRepository>();
+builder.Services.AddScoped<ICategoriaRepositorio, categoriaRepositorio>();
+builder.Services.AddScoped<IProductoRepositorio, productoRepositorio>();
 
 builder.Services.AddDbContext<BethesdaPieShopDbContext>(options => {
     options.UseSqlite(

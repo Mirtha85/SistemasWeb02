@@ -1,0 +1,125 @@
+﻿@using SistemasWeb01.ViewModels
+@model ViewModel
+
+<h1>Registro De Productos</h1>
+<form asp-action="Agregar" enctype="multipart/form-data" method="post" role="form">
+    
+    <div class="contenedorPadre">
+        <div class="contenedor">
+            <div class="form-group">
+                <label asp-for="productoClass.productoNombre"></label>
+                <input asp-for="productoClass.productoNombre" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="productoClass.precio"></label>
+                <input asp-for="productoClass.precio" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="productoClass.detalle"></label>
+                <input asp-for="productoClass.detalle" class="form-control" />
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="productoClass.CategoriaId"></label>
+                <select asp-for="productoClass.CategoriaId" class="form-control">
+                    <option value="">Seleccionar una categoría</option>
+                    @foreach (var categoria in Model.categorias)
+                    {
+                        <option value="@categoria.categoriaId">@categoria.categoriaNombre</option>
+                    }
+                </select>
+                <input id="estado" type="checkbox" asp-for="productoClass.deleted" checked />
+
+            </div>
+            
+        </div>
+        <div class="contenedor2">
+            @*de aqui*@
+            <div class="form-group">
+                <div id="previewContainer">
+                    <img id="preview" src="#" alt="Vista previa de la imagen" />
+                </div>
+                <label for="imagen">Imagen:</label>
+
+
+                <input accept="image/*" type="file" id="imagen" name="imagen" onchange="actualizarNombreImagen()">
+
+            </div>
+            @*hasta aqui*@
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Agregar</button>
+    
+</form>
+
+@**************************************@
+<script>
+    function actualizarNombreImagen() {
+        var inputImagen = document.getElementById('imagen');
+        var inputNombreImagen = document.getElementById('nombreImagen');
+        inputNombreImagen.value = inputImagen.files[0].name;
+    }
+    function ponerNombre(){
+        var nomb = document.getElementById('estado');
+        nomb.value = 'true';
+    }
+    function previewImage(input) {
+        var preview = document.querySelector('#preview');
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                preview.src = e.target.result;
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    document.querySelector('#imagen').addEventListener('change', function () {
+        previewImage(this);
+    });
+</script>
+<style>
+    #estado{
+        display:none;
+    }
+    #nombreImagen {
+        display: none;
+    }
+
+    #imagen {
+        display: block;
+        margin-top: 15px;
+    }
+
+
+    .form-group {
+        padding: 8px 0px;
+    }
+
+    .btnGuardar {
+        margin-top: 10px;
+    }
+
+    #previewContainer {
+        width: 300px;
+        height: 300px;
+        background-image: url('https://static.vecteezy.com/system/resources/previews/004/141/669/non_2x/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        border: dashed rgb(123,123,123) 2px;
+        border-radius: 10px;
+        background-size: cover;
+        overflow: hidden;
+    }
+
+    #preview {
+        width: 100%;
+    }
+    .contenedorPadre{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:10px;
+    }
+</style>
+
