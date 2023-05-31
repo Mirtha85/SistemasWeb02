@@ -1,21 +1,24 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using SistemasWeb01.Models;
+using SistemasWeb01.ViewModels;
 
 namespace SistemasWeb01.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
+    private readonly IPieRepository _pieRepository;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(IPieRepository pieRepository)
     {
-        _logger = logger;
+        _pieRepository = pieRepository;
     }
 
     public IActionResult Index()
     {
-        return View();
+        var piesOfTheWeek = _pieRepository.PiesOfTheWeek;
+        var homeViewModel = new HomeViewModel(piesOfTheWeek);
+        return View(homeViewModel);
     }
 
     public IActionResult Privacy()
