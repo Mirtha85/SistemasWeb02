@@ -15,8 +15,9 @@ namespace SistemasWeb01.Controllers
         }
         public IActionResult Index()
         {
+            ProductoListViewModel productos = new ProductoListViewModel(_categoryRepository.Categorias,_productoRepository.filtroDelete);
             //return View(_productoRepository.AllProductos);
-            return View(_productoRepository.filtroDelete);
+            return View(productos);
         }
         public IActionResult Crear()
         {

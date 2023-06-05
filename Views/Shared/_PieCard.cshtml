@@ -1,7 +1,7 @@
 ﻿
 @model Pie
-<div class="col">
-    <div class="card pie-card">
+<div class="col widget">
+    <div class="card pie-card ">
         <img src="@Model.ImageThumbnailUrl" class="card-img-top" alt="@Model.Name">
         <div class="card-body pie-button">
             <h4 class="d-grid">
@@ -26,3 +26,7 @@
         </div>
     </div>
 </div>
+<script>
+    ScrollReveal().reveal('.headline', { duration: 2000 });
+    ScrollReveal().reveal('.widget', { interval: 200 });
+</script>
