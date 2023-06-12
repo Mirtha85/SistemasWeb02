@@ -16,6 +16,9 @@ builder.Services.AddScoped<IShoppingCart, ShoppingCart>(sp => ShoppingCart.GetCa
 builder.Services.AddSession();
 builder.Services.AddHttpContextAccessor();
 
+builder.Services.AddRazorPages();
+builder.Services.AddServerSideBlazor();
+
 
 
 builder.Services.AddDbContext<BethesdaPieShopDbContext>(options => {
@@ -36,12 +39,18 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseSession();
-app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
+//app.UseRouting();
+
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.MapRazorPages();
+app.MapBlazorHub();
+
 DbInitializer.Seed(app);
 app.Run();
