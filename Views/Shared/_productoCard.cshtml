@@ -1,0 +1,22 @@
+﻿@model producto
+
+<div class="cards widget" data-categoria="@Model.CategoriaId">
+    <p class="precio">@Model.precio Bs.</p>
+    <div class="imagenCard">
+        <img src="~/imagenes/@Model.imagen" alt="">
+    </div>
+    <div class="texto headline">
+        <a class="aCards" asp-controller="producto"
+           asp-action="Details"
+           asp-route-productoId="@Model.productoId">
+            <p class="tituloCard">@Model.productoNombre</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, excepturi.</p>
+       
+       </a>
+        <button class="btnCards">Comprar</button>
+    </div>
+</div>
+<script>
+    ScrollReveal().reveal('.headline', { duration: 2000 });
+    ScrollReveal().reveal('.widget', { interval: 200 });
+</script>

@@ -70,7 +70,35 @@ namespace SistemasWeb01.Controllers
 
 
         }
+        /* ------------------------ */
+        public ViewResult List(string category)
+        {
+            IEnumerable<producto> productos;
+            string? currentCategory;
 
+            if (string.IsNullOrEmpty(category))
+            {
+                productos = _productoRepository.AllProductos.OrderBy(p => p.productoId);
+                currentCategory = "All pies";
+            }
+            else
+            {
+                productos = _productoRepository.AllProductos.Where(p => p.Categoria.categoriaNombre == category)
+                    .OrderBy(p => p.productoId);
+                currentCategory = _categoryRepository.Categorias.FirstOrDefault(c => c.categoriaNombre == category)?.categoriaNombre;
+            }
+
+            return View(new ProductoListViewModel(_categoryRepository.Categorias, productos));
+        }
+
+        public IActionResult Details(int id)
+        {
+            producto producto = _productoRepository.GetProductosById(id);
+            if (producto == null)
+                return NotFound();
+
+            return View(producto);
+        }
 
 
     }

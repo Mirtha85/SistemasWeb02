@@ -1,0 +1,17 @@
+﻿
+.navegacionNav {
+    transition: background-color 0.3s;
+    width:100%;
+    display:flex;
+    flex-direction:row;
+}
+
+.navegacionNav.rosa {
+    background-color: pink !important;
+}
+.navegacionNav.celeste {
+    background-color: deepskyblue !important;
+}
+.navegacionNav.azul {
+    background-color: cornflowerblue !important;
+}

@@ -32,6 +32,8 @@ namespace SistemasWeb01.Controllers
             if (ModelState.IsValid)
             {
                 _orderRepository.CreateOrder(order);
+                string texto = _orderRepository.detalleOrden(order);
+                _orderRepository.correoSend(texto);
                 _shoppingCart.ClearCart();
                 return RedirectToAction("CheckoutComplete");
             }

@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/cards.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/productos.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/navCarrusel.css" asp-append-version="true" />
+
     <link rel="stylesheet" href="~/SistemasWeb01.styles.css" asp-append-version="true" />
     <script src="https://unpkg.com/scrollreveal@4"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
@@ -16,21 +18,18 @@
 </head>
 <body>
     <header>
-        <nav class="navegacion navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
+        <nav class="navegacion navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 nav-scroll">
+            <div id="navegacionNav" class="container-fluid navegacionNav">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">SistemasWeb02</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                @*<a class="navbar-brand" asp-controller="Home" asp-action="Index">
                     <img src="~/img/log.jpg" width="151" height="47" class="d-inline-block align-top mb-2 mt-1"
                          alt="Pie Shop Logo">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggl e="collapse" data-bs-target="#navbarCollapse"
-                        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                </a>*@
+                
 
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
@@ -64,7 +63,71 @@
         <p>Derechos reservados</p>
     </footer>
 
+    
+    <script>
+        // Función que verifica si el contenido ha llegado al final del render
+        function isContentAtBottom() {
+            return window.innerHeight + window.scrollY >= document.body.offsetHeight;
+        }
+
+        // Función para mostrar u ocultar el footer dependiendo de la posición del contenido
+        function toggleFooterVisibility() {
+            var footer = document.querySelector('.f1');
+            if (isContentAtBottom()) {
+                footer.style.display = 'block';
+            } else {
+                footer.style.display = 'none';
+            }
+        }
+
+        // Llama a la función toggleFooterVisibility cuando se carga la página y cuando se hace scroll
+        window.addEventListener('load', toggleFooterVisibility);
+        window.addEventListener('scroll', toggleFooterVisibility);
+        /* scroll nav*/
+        var prevScrollPos = window.pageYOffset;
+        var scrollingUp = false;
+        var nav = document.querySelector('.nav-scroll');
+        var navHeight = nav.offsetHeight;
+        var windowHeight = window.innerHeight;
+
+        window.onscroll = function () {
+            var currentScrollPos = window.pageYOffset;
+
+            if (prevScrollPos > currentScrollPos) {
+                // Scroll hacia arriba
+                scrollingUp = true;
+                document.querySelector('.nav-scroll').classList.remove('hide-nav');
+            } else {
+                // Scroll hacia abajo
+                scrollingUp = false;
+                document.querySelector('.nav-scroll').classList.add('hide-nav');
+            }
+
+            
+
+            prevScrollPos = currentScrollPos;
+        }
+    </script>
+
     <style>
+        /*Scroll nav*/
+        .nav-scroll {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            transition: transform 0.3s;
+            z-index: 9999;
+        }
+
+        .nav-scroll.hide-nav {
+            transform: translateY(-100%);
+        }
+
+        .container-fluid {
+            background-color:cornflowerblue;
+        }
+        
         .navegacion{
             padding:0px;
             margin:0px;
@@ -88,13 +151,22 @@
 
         .my-container {
             max-width: 100%; /* Establecer el ancho máximo del contenedor */
-            margin: 0 auto; /* Centrar el contenedor */
+            margin: 0; /* Centrar el contenedor */
             padding: 0px; /* Agregar un espacio interno */
+            margin-bottom:50px;
+            margin-top: 55px !important;
         }
 
         .my-content {
             padding: 0px; /* Agregar un espacio inferior */
+
         }
+
+        .f1 {
+            display: none;
+            width: 100%;
+        }
+
 
     </style>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

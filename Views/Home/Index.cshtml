@@ -1,8 +1,23 @@
 ﻿@using SistemasWeb01.ViewModels
-@model HomeViewModel
+@model ProductoListViewModel
+
+
+
 <partial name="_Carousel" />
+
 <div class="text-center">
-    <img src="./img/logoImagen.jpg" class="logo-mark mx-auto" />
+    <h1>Productos</h1>
+    <h5>Enjoy a weekly selection of our favorite  producto</h5>
+
+    <div class="contenedorCards">
+            @foreach (var producto in Model.productos)
+            {
+                <partial name="_productoCard" model="producto" />
+            }
+    </div>
+</div>
+
+@*<div class="text-center">
     <h1>Pies of the week</h1>
     <h5>Enjoy a weekly selection of our favorite pies</h5>
 
@@ -19,5 +34,5 @@
         </div>
 
     </div>
-</div>
+</div>*@
 

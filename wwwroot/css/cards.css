@@ -63,11 +63,12 @@ opacity: 0.5;
     transition: width 0.3s ease; /* Transición suave */
 }
 
-.texto > p {
-    margin:0px 5%;
+.texto p {
+    margin: 0px 5%;
+    color: rgb(192, 192, 192);
 }
 
-.texto > p:first-child {
+.texto p:first-child {
     color: rgba(0, 0, 255, 0.775);
     font-size: 20px;
     font-weight: bold;
