@@ -46,7 +46,11 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Categoria" asp-action="Index">Categorias</a>
                         </li>
                     </ul>
+
+                    <partial name="_LoginPartial" />
+
                 </div>
+
             </div>
         </nav>
     </header>
@@ -56,6 +60,7 @@
         <main role="main" class="my-content">
             <!-- Contenido aquí -->
             @RenderBody()
+            @RenderSection("Scripts", required: false)
         </main>
     </div>
 
@@ -169,9 +174,6 @@
 
 
     </style>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+    
 </body>
 </html>

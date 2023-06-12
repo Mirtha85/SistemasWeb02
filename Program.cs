@@ -1,7 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using SistemasWeb01.Models;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
+var connectionString = builder.Configuration.GetConnectionString("BethesdaPieShopDbContextConnection") ?? throw new InvalidOperationException("Connection string 'BethesdaPieShopDbContextConnection' not found.");
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -20,11 +22,19 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 
 
-
 builder.Services.AddDbContext<BethesdaPieShopDbContext>(options => {
-    options.UseSqlite(
-        builder.Configuration["ConnectionStrings:BethesdaPieShopDbContextConnection"]);
+    options.UseSqlite(connectionString);
 });
+//builder.Services.AddDbContext<BethesdaPieShopDbContext>(options => {
+//    options.UseSqlite(
+//        builder.Configuration["ConnectionStrings:BethesdaPieShopDbContextConnection"]);
+//});
+
+builder.Services.AddDefaultIdentity<IdentityUser>(
+    //options => options.SignIn.RequireConfirmedAccount = true // para verificar el correo
+    ).AddEntityFrameworkStores<BethesdaPieShopDbContext>();
+
+
 
 var app = builder.Build();
 
