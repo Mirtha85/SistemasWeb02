@@ -7,12 +7,14 @@ namespace SistemasWeb01.Controllers
     public class ShoppingCartController : Controller
     {
         private readonly IPieRepository _pieRepository;
+        private readonly IProductoRepositorio _productoRepository;
         private readonly IShoppingCart _shoppingCart;
 
-        public ShoppingCartController(IPieRepository pieRepository, IShoppingCart shoppingCart)
+        public ShoppingCartController(IPieRepository pieRepository, IShoppingCart shoppingCart, IProductoRepositorio productoRepositorio)
         {
             _pieRepository = pieRepository;
             _shoppingCart = shoppingCart;
+            _productoRepository = productoRepositorio;
 
         }
         public ViewResult Index()
@@ -25,13 +27,14 @@ namespace SistemasWeb01.Controllers
             return View(shoppingCartViewModel);
         }
 
-        public RedirectToActionResult AddToShoppingCart(int pieId)
+        public RedirectToActionResult AddToShoppingCart(int productoId)
         {
-            var selectedPie = _pieRepository.AllPies.FirstOrDefault(p => p.PieId == pieId);
+            var selectedProducto = _productoRepository.AllProductos.FirstOrDefault(p => p.productoId == productoId);
+            var selectedPie = _pieRepository.AllPies.FirstOrDefault(p => p.PieId == productoId);
 
-            if (selectedPie != null)
+            if (selectedProducto != null)
             {
-                _shoppingCart.AddToCart(selectedPie);
+                _shoppingCart.AddToCart(selectedProducto);
             }
             return RedirectToAction("Index");
         }

@@ -33,19 +33,18 @@ namespace SistemasWeb01.Models
 
             return new ShoppingCart(context) { ShoppingCartId = cartId };
         }
-
-        public void AddToCart(Pie pie)
+        public void AddToCart(producto producto)
         {
             var shoppingCartItem =
                     _bethesdaPieShopDbContext.ShoppingCartItemsDbSet.SingleOrDefault(
-                        s => s.Pie.PieId == pie.PieId && s.ShoppingCartId == ShoppingCartId);
+                        s => s.Producto.productoId == producto.productoId && s.ShoppingCartId == ShoppingCartId);
 
             if (shoppingCartItem == null)
             {
                 shoppingCartItem = new ShoppingCartItem
                 {
                     ShoppingCartId = ShoppingCartId,
-                    Pie = pie,
+                    Producto = producto,
                     Amount = 1
                 };
 
@@ -57,12 +56,35 @@ namespace SistemasWeb01.Models
             }
             _bethesdaPieShopDbContext.SaveChanges();
         }
+        //public void AddToCart(Pie pie)
+        //{
+        //    var shoppingCartItem =
+        //            _bethesdaPieShopDbContext.ShoppingCartItemsDbSet.SingleOrDefault(
+        //                s => s.Pie.PieId == pie.PieId && s.ShoppingCartId == ShoppingCartId);
+
+        //    if (shoppingCartItem == null)
+        //    {
+        //        shoppingCartItem = new ShoppingCartItem
+        //        {
+        //            ShoppingCartId = ShoppingCartId,
+        //            Pie = pie,
+        //            Amount = 1
+        //        };
+
+        //        _bethesdaPieShopDbContext.ShoppingCartItemsDbSet.Add(shoppingCartItem);
+        //    }
+        //    else
+        //    {
+        //        shoppingCartItem.Amount++;
+        //    }
+        //    _bethesdaPieShopDbContext.SaveChanges();
+        //}
 
         public int RemoveFromCart(Pie pie)
         {
             var shoppingCartItem =
                     _bethesdaPieShopDbContext.ShoppingCartItemsDbSet.SingleOrDefault(
-                        s => s.Pie.PieId == pie.PieId && s.ShoppingCartId == ShoppingCartId);
+                        s => s.Producto.productoId == pie.PieId && s.ShoppingCartId == ShoppingCartId);
 
             var localAmount = 0;
 
@@ -88,7 +110,7 @@ namespace SistemasWeb01.Models
         {
             return ShoppingCartItems ??=
                         _bethesdaPieShopDbContext.ShoppingCartItemsDbSet.Where(c => c.ShoppingCartId == ShoppingCartId)
-                            .Include(s => s.Pie)
+                            .Include(s => s.Producto)
                             .ToList();
         }
         
@@ -110,7 +132,7 @@ namespace SistemasWeb01.Models
             var total = _bethesdaPieShopDbContext.ShoppingCartItemsDbSet
                 .Where(c => c.ShoppingCartId == ShoppingCartId)
                 .ToList() // force to handle it as C# object
-                .Select(c => c.Pie.Price * c.Amount).Sum();
+                .Select(c => c.Producto.precio * c.Amount).Sum();
             return total;
         }
     }

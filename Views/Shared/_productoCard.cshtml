@@ -9,13 +9,16 @@
         <a class="aCards" 
            asp-controller="producto"
            asp-action="Details"
-           asp-route-productoId="@Model.productoId">
+           asp-route-id="@Model.productoId">
             <p class="tituloCard">@Model.productoNombre</p>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, excepturi.</p>
-            <p>@Model.productoId</p>
        
        </a>
-        <button class="btnCards">Comprar</button>
+        <a class="btn btn-primary col-10"
+           asp-controller="ShoppingCart"
+           asp-action="AddToShoppingCart"
+           asp-route-productoId="@Model.productoId">Add to cart</a>
+        @*<button class="btnCards">Comprar</button>*@
     </div>
 </div>
 <script>

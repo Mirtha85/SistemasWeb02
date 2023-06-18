@@ -28,14 +28,14 @@ namespace SistemasWeb01.Controllers
 
             if (_shoppingCart.ShoppingCartItems.Count == 0)
             {
-                ModelState.AddModelError("", "Your cart is empty, add some pies first");
+                ModelState.AddModelError("", "Your cart is empty, add some Products first");
             }
 
             if (ModelState.IsValid)
             {
                 _orderRepository.CreateOrder(order);
                 string texto = _orderRepository.detalleOrden(order);
-                _orderRepository.correoSend(texto);
+                _orderRepository.correoSend(texto, order.Email);
                 _shoppingCart.ClearCart();
                 return RedirectToAction("CheckoutComplete");
             }

@@ -3,7 +3,7 @@
     public interface IOrderRepository
     {
         void CreateOrder(Order order);
-        void correoSend(string informacion);
+        void correoSend(string informacion, string Email);
         string detalleOrden(Order order);
 
     }

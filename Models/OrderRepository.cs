@@ -29,8 +29,8 @@ namespace SistemasWeb01.Models
                 var orderDetail = new OrderDetail
                 {
                     Amount = shoppingCartItem.Amount,
-                    PieId = shoppingCartItem.Pie.PieId,
-                    Price = shoppingCartItem.Pie.Price
+                    PieId = shoppingCartItem.Producto.productoId,
+                    Price = shoppingCartItem.Producto.precio
                 };
 
                 order.OrderDetails.Add(orderDetail);
@@ -47,16 +47,16 @@ namespace SistemasWeb01.Models
 
             foreach (ShoppingCartItem? shoppingCartItem in shoppingCartItems)
             {
-                nombre = nombre + "\nproducto " +  shoppingCartItem.Pie.Name + " precio :" +shoppingCartItem.Pie.Price + " Cantidad "+ shoppingCartItem.Amount;
+                nombre = nombre + "\nproducto " +  shoppingCartItem.Producto.productoNombre + " precio :" +shoppingCartItem.Producto.precio + " Cantidad "+ shoppingCartItem.Amount;
                 
             }
             nombre = nombre + "\nTotal : "+ order.OrderTotal;
             return nombre;
         }
-        public void correoSend(string informacion)
+        public void correoSend(string informacion, string Email)
         {
 
-            string destinatario = "alexiscruzt2@gmail.com";
+            string destinatario = Email;
             string asunto = "Correo de prueba";
             string contenido = informacion;
 
