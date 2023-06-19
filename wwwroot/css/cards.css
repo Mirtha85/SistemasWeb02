@@ -115,3 +115,14 @@ opacity: 0.5;
     background-color:blue;
     color:white;
 }
+/* Design tamaño texto*/
+.aCards {
+    display:inline-block;
+    height: 90px !important;
+    overflow: hidden !important;
+}
+.btncard {
+    margin-top: 5px !important;
+    overflow: hidden !important;
+    background-color:green;
+}

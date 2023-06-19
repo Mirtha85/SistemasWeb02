@@ -11,10 +11,12 @@
            asp-action="Details"
            asp-route-id="@Model.productoId">
             <p class="tituloCard">@Model.productoNombre</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, excepturi.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, excepturi.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, excepturi.
+            </p>
        
        </a>
-        <a class="btn btn-primary col-10"
+        <a class="btn btn-primary col-10 btncard"
            asp-controller="ShoppingCart"
            asp-action="AddToShoppingCart"
            asp-route-productoId="@Model.productoId">Add to cart</a>

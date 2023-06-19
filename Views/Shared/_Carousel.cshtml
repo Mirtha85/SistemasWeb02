@@ -18,9 +18,7 @@
         </div>
     </div>
 </div>
-<div id="cuadrado" class="cuadrado">
-    hola
-</div>
+
 
 
 <style>
@@ -42,50 +40,35 @@
         background-color:hotpink;
         color:white;
     }
-    /* nav */
-    .cuadrado {
-        width: 200px;
-        height: 200px;
-        transition: background-color 0.3s;
+    
+    .nav-item:hover {
+        background-color: rgba(255, 255, 255, 0.31);
     }
-
-    .cuadrado.rojo {
-        background-color: red;
-    }
-
-    .cuadrado.verde {
-        background-color: green;
-    }
-
-    .cuadrado.azul {
-        background-color: blue;
-    }
-
 </style>
+
 <script>
     var carousel = document.getElementById('carouselImages');
-    var cuadrado = document.getElementById('navegacionNav');
     var primer = document.getElementsByClassName('container-fluid');
+    var submenu = document.getElementsByClassName('nav-item');
     primer[0].style.backgroundColor = 'pink';
-    
     carousel.addEventListener('slid.bs.carousel', function (event) {
-
-        
-
-        var activeSlide = event.relatedTarget;
-        var activeIndex = Array.from(carousel.querySelectorAll('.carousel-item')).indexOf(activeSlide);
-        
-
-        cuadrado.className = 'navegacionNav';
+        var activeIndex = event.to;
 
         if (activeIndex === 0) {
-            cuadrado.classList.add('rosa');
+            for (var i = 0; i < primer.length; i++) {
+                primer[i].style.backgroundColor = 'pink';
+            }
+            
         } else if (activeIndex === 1) {
-            cuadrado.classList.add('celeste');
+            for (var i = 0; i < primer.length; i++) {
+                primer[i].style.backgroundColor = 'deepskyblue';
+            }
         } else if (activeIndex === 2) {
-            cuadrado.classList.add('azul');
+            for (var i = 0; i < primer.length; i++) {
+                primer[i].style.backgroundColor = 'cornflowerblue';
+            }
         }
     });
 
-
+    
 </script>

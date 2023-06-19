@@ -1,5 +1,6 @@
 ﻿using System.Net.Mail;
 using System.Net;
+using Microsoft.Identity.Client;
 
 namespace SistemasWeb01.Models
 {

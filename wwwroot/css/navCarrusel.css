@@ -6,7 +6,7 @@
     flex-direction:row;
 }
 
-.navegacionNav.rosa {
+/*.navegacionNav.rosa {
     background-color: pink !important;
 }
 .navegacionNav.celeste {
@@ -14,4 +14,19 @@
 }
 .navegacionNav.azul {
     background-color: cornflowerblue !important;
+}*/
+@media (min-width: 0px) and (max-width: 575px) {
+    /* Estilos para el rango de 576px a 767px */
+    /* Puedes agregar aquí las reglas de estilo que desees aplicar */
+    /* Ejemplo: */
+    .contenedorCards{
+        display:flex;
+        justify-content:center;
+    }
+    
+}
+
+.contenedorCards {
+    display: flex;
+    justify-content: center;
 }

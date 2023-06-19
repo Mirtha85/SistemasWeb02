@@ -18,3 +18,9 @@ body {
 .aCards {
     text-decoration: none;
 }
+.nav-item{
+    padding:10px;
+}
+.nav-item:hover {
+    border-radius:10px;
+}

@@ -35,16 +35,18 @@ namespace SistemasWeb01.Controllers
             {
                 _orderRepository.CreateOrder(order);
                 string texto = _orderRepository.detalleOrden(order);
+                string number = order.PhoneNumber;
                 _orderRepository.correoSend(texto, order.Email);
                 _shoppingCart.ClearCart();
-                return RedirectToAction("CheckoutComplete");
+                return RedirectToAction("CheckoutComplete",new { texto = texto, number = number });
             }
             return View(order);
         }
 
-        public IActionResult CheckoutComplete()
+        public IActionResult CheckoutComplete(string texto, string number)
         {
-            ViewBag.CheckoutCompleteMessage = "Thanks for your order. You'll soon enjoy our delicious pies!";
+            ViewBag.CheckoutCompleteMessage = texto;
+            ViewBag.numero = number;
             return View();
         }
     }
