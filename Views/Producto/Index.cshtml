@@ -13,20 +13,11 @@
 </div>
 
 
-<div class="contenedorCards">
-    @foreach (var item in Model.productos)
+
+<div class="contenedor">
+    @foreach (var producto in Model.productos)
     {
-        <div class="cards widget" data-categoria="@item.CategoriaId">
-            <p class="precio">@item.precio Bs.</p>
-            <div class="imagenCard">
-                <img src="~/imagenes/@item.imagen" alt="">
-            </div>
-            <div class="texto headline">
-                <p class="tituloCard">@item.productoNombre</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, excepturi.</p>
-                <button class="btnCards">Comprar</button>
-            </div>
-        </div>
+        <partial name="_productoCard" model="producto" />
     }
 </div>
 

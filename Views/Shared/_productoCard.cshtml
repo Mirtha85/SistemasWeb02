@@ -1,5 +1,5 @@
 ﻿@model producto
-
+@*
 <div class="cards widget" data-categoria="@Model.CategoriaId">
     <p class="precio">@Model.precio Bs.</p>
     <div class="imagenCard">
@@ -20,9 +20,31 @@
            asp-controller="ShoppingCart"
            asp-action="AddToShoppingCart"
            asp-route-productoId="@Model.productoId">Add to cart</a>
-        @*<button class="btnCards">Comprar</button>*@
+    </div>
+</div>*@
+
+<div class="tarjeta" data-categoria="@Model.CategoriaId">
+    <span>80Bs</span>
+    <div class="fondo">
+        <img src="~/imagenes/@Model.imagen" alt="">
+    </div>
+    <div class="texto">
+        <p>
+            <a class="textTarjeta" 
+               asp-controller="producto"
+               asp-action="Details"
+               asp-route-id="@Model.productoId">@Model.productoNombre
+           </a>
+        </p>
+        <p>Categoria : @Model.Categoria.categoriaNombre</p>
+        <a class="btnTarjeta" 
+           asp-controller="ShoppingCart"
+           asp-action="AddToShoppingCart"
+           asp-route-productoId="@Model.productoId"><i class="bi bi-cart3"></i> Comprar
+       </a>
     </div>
 </div>
+
 <script>
     ScrollReveal().reveal('.headline', { duration: 2000 });
     ScrollReveal().reveal('.widget', { interval: 200 });
