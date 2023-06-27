@@ -41,6 +41,12 @@
     justify-content: center;
     justify-items:start;
 }
+#contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-items: start;
+}
 
 span {
     position: absolute;

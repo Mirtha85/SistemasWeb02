@@ -65,6 +65,11 @@ namespace SistemasWeb01.Models
             _tiendaOnlineDbContext.ProductosDbSet.Update(_producto);
             _tiendaOnlineDbContext.SaveChanges();
         }
+        /* Serach */
+        public IEnumerable<producto> SearchProducto(string searchQuery)
+        {
+            return _tiendaOnlineDbContext.ProductosDbSet.Where(p => p.productoNombre.Contains(searchQuery));
+        }
         
     }
 }

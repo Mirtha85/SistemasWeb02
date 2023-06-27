@@ -1,0 +1,127 @@
+﻿<style>
+
+
+    .search-container {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+        .search-container input[type="text"] {
+            padding: 8px 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .search-container button {
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+    .product-card {
+        background-color: white;
+        width: 230px;
+        height: 230px;
+        margin-bottom: 20px;
+        margin-right: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        text-align: center;
+        display: inline-block;
+        vertical-align: top;
+    }
+
+        .product-card img {
+            width: 70%;
+            height: 80%;
+            margin-bottom: 10px;
+        }
+
+        .product-card h4 {
+            margin: 0;
+            padding: 0;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .product-card p {
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+            color: #777;
+        }
+</style>
+
+<section class="container seccion">
+    <div class="search-container">
+        <h3>Ingresa tu consulta de búsqueda</h3>
+        <input id="txtProductoNombre" type="text" placeholder="Escribe aquí...">
+        <button id="searchButton">Buscar</button>
+    </div>
+
+    <div id="tblProductos"></div>
+    <div id="contenedor"></div>
+
+    
+</section>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("button").click(function () {
+            var searchQuery = $.trim($("#txtProductoNombre").val());
+            $("#contenedor").empty();
+            $.ajax({
+                type: "POST",
+                url: "/api/Search",
+                data: "\"" + searchQuery + "\"",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (productos) {
+                    $.each(productos, function (i, producto) {
+                        //var productCard = $('<div class="product-card">');
+                        // aqui nombraremos
+                        var span = $('<span>'+producto.precio+'</span>');
+                        var fondo = $('<div class="fondo"><img src = "/imagenes/'+producto.imagen+'"></div>');
+                        var texto = $('<div class="texto"><p><a class="textTarjeta" href="/Producto/Details/' + producto.productoId + '" >' + producto.productoNombre + '</a></p><p>Categoria: ' + producto.productoId + '</p><a class="btnTarjeta" href="/ShoppingCart/AddToShoppingCart?ProductoId=' + producto.productoId + '">Comprar</a></div>')
+                        //var texto = $('<div class="texto"><p><a class="textTarjeta" asp-controller="producto" asp-action="Details" asp-route-id="'+producto.productoId+'">' +producto.productoNombre+'</a></p><p> Categoria :' +producto.Categoria.categoriaNombre+'</p> <a class= "btnTarjeta" asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-productoId="' +producto.productoId+ '" > <i class="bi bi-cart3" > </i> Comprar </a> </div>');
+                        //var fondo = $('<div class="fondo">');
+                        //var texto = $('<div class="texto">');
+                        //var p = $('<div class="texto">');
+                        
+                        var tarjeta = $('<div class="tarjeta">');
+
+                        //var card = $('<span>80Bs</span>< div class= "fondo" ><img src="~/imagenes/' + producto.imagen + '"></div>< div class= "texto" ><p> <a class="textTarjeta"asp - controller="producto"asp - action="Details"asp - route - id="' + producto.productoId + '">' + producto.productoNombre + '</a></p>< p > Categoria :' + producto.Categoria.categoriaNombre + '</p>< a class= "btnTarjeta"asp - controller="ShoppingCart"asp - action="AddToShoppingCart"asp - route - productoId="'+producto.productoId+'" > <i class="bi bi-cart3" > </i> Comprar< /a>< /div>')
+                        //tarjeta.append('<span>80Bs</span><div class="fondo"><img src="~/imagenes/' + producto.imagen + '"></div><div class="texto"><p><a class="textTarjeta" asp-controller="producto" asp-action="Details" asp-route-id="' + producto.productoId + '">' + producto.productoNombre + '</a></p><p>Categoria: ' + producto.Categoria.categoriaNombre + '</p><a class="btnTarjeta" asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-productoId="' + producto.productoId + '"><i class="bi bi-cart3"></i> Comprar</a></div>');
+                        tarjeta.append(fondo);
+                        tarjeta.append(span);
+                        tarjeta.append(texto);
+
+                        
+
+                        //productCard.append('<img src="/imagenes/'+producto.imagen+'">');
+                        ////Comienzo a llenar la tarjeta
+                        //spam.append('<img src="/imagenes/'+producto.imagen+'">');
+                        //productCard.append('<img src="/imagenes/' + producto.imagen + '">');
+                        //productCard.append('<img src="/imagenes/' + producto.imagen + '">');
+
+                        //productCard.append('<h4>' + '<a href="/Producto/details/' + producto.productoId + '">' + producto.productoNombre + '</a>');
+                        ////productCard.append('<p>' + producto.descripcionProducto + '</p>');
+                        //productCard.append('<p>Precio: '+producto.precio+'</p>');
+                        $("#contenedor").append(tarjeta);
+                    });
+                },
+                error: function (xhr, status, error) {
+                    console.log(xhr);
+                }
+            });
+        });
+    });
+</script>
+
+
+

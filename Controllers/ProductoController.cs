@@ -99,7 +99,8 @@ namespace SistemasWeb01.Controllers
 
             return View(producto);
         }
-
+        public IActionResult Search() { return View(); }
+       
 
     }
 }

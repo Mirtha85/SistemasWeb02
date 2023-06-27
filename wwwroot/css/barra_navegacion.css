@@ -162,16 +162,16 @@ header li:hover {
     animation-name: abajo;
 }
 
-    .cabezera.arriba {
-        position: sticky;
-        width: 100%;
-        top: 0px;
-        animation-name: arriba;
-        animation-timing-function: ease-in-out;
-        animation-fill-mode: forwards;
-        animation-duration: 0.5s;
-        z-index: 999;
-    }
+.cabezera.arriba {
+    position: sticky;
+    width: 100%;
+    top: 0px;
+    animation-name: arriba;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-duration: 0.5s;
+    z-index: 9999;
+}
 
 @keyframes abajo {
     0% {

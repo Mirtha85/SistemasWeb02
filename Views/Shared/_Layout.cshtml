@@ -1,6 +1,12 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+    <script src="~/lib/jquery/jquery.js"></script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - SistemasWeb01</title>
@@ -33,7 +39,17 @@
                 <li><a href="#">Contacto</a></li>
                 <partial name="_LoginPartial" />
             </ul>
-                      
+@*            este es lo nuevo de search*@
+            <ul class="navbar-nav mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Producto" asp-action="Search">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+
             <div class="hamburger">
                 <div class="line"></div>
                 <div class="line"></div>
@@ -56,44 +72,6 @@
         </div>
 
     </header>
-    @*<header>
-        <nav class="navegacion navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 nav-scroll">
-            <div id="navegacionNav" class="container-fluid navegacionNav">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">SistemasWeb02</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <a class="navbar-brand" asp-controller="Home" asp-action="Index">
-                <img src="~/img/log.jpg" width="151" height="47" class="d-inline-block align-top mb-2 mt-1"
-                alt="Pie Shop Logo">
-                </a>
-
-
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About">Acerca</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Producto" asp-action="Index">Productos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Categoria" asp-action="Index">Categorias</a>
-                        </li>
-                    </ul>
-
-                    <partial name="_LoginPartial" />
-
-                </div>
-
-            </div>
-        </nav>
-    </header>*@
-    
 
     <div class="my-container">
         <main role="main" class="my-content">
@@ -103,11 +81,9 @@
         </main>
     </div>
 
-    <footer class="f1">
-        <p>Derechos reservados</p>
-    </footer>
-
     
+
+
     <script>
         // Función que verifica si el contenido ha llegado al final del render
         function isContentAtBottom() {
@@ -116,7 +92,7 @@
 
         // Función para mostrar u ocultar el footer dependiendo de la posición del contenido
         function toggleFooterVisibility() {
-            var footer = document.querySelector('.f1');
+            var footer = document.getElementById('footer21');
             if (isContentAtBottom()) {
                 footer.style.display = 'block';
             } else {
@@ -124,9 +100,28 @@
             }
         }
 
+        // Asociar la función toggleFooterVisibility() al evento de desplazamiento (scroll)
+        window.addEventListener('scroll', toggleFooterVisibility);
     </script>
     <script>
+        //
+        // Función que verifica si el contenido ha llegado al final del render
+        //function isContentAtBottom() {
+        //    console.log("llego al final");
+        //    return window.innerHeight + window.scrollY >= document.body.offsetHeight;
+        //}
 
+        //// Función para mostrar u ocultar el footer dependiendo de la posición del contenido
+        //function toggleFooterVisibility() {
+        //    console.log("llego al final");
+        //    var footer = document.querySelector('.f1');
+        //    if (isContentAtBottom()) {
+        //        footer.style.display = 'block';
+        //    } else {
+        //        footer.style.display = 'none';
+        //    }
+        //}
+        //
         var seleccionado = false;
         //<!--esto es del click del menu hamburguesa-- >
         document.addEventListener('DOMContentLoaded', function () {
@@ -233,12 +228,13 @@
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             background-color: rgba(49, 47, 47, 1);
             color: antiquewhite;
-            position: fixed;
-            bottom: 0;
-            display: none;
-            width: 100%;
+            position:sticky;
+            display:none;
+            bottom:0px;
         }
-
+        .pFooter{
+            margin:0px;
+        }
         .my-container {
             max-width: 100%; /* Establecer el ancho máximo del contenedor */
             margin: 0px; /* Centrar el contenedor */

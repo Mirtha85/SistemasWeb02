@@ -13,5 +13,7 @@ namespace SistemasWeb01.Models
         IEnumerable<producto> filtroDelete { get; }
         public producto GetById(int id);
         void deleteUpdate (producto producto);
+
+        IEnumerable<producto> SearchProducto(string searchQuery);
     }
 }
