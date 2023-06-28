@@ -1,0 +1,181 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.ContenedorShopping {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.detalleProducto {
+    width: 275px;
+    height: 345px;
+    max-height: 345px;
+    min-width: 275px;
+    min-height: 345px;
+    margin-left: 44px;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.274);
+}
+
+.imagenShopping {
+    background-image: url('fondo.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 242px;
+    display: flex;
+    justify-content: center;
+}
+
+    .imagenShopping > img {
+        width: 100%;
+        height: 242px;
+        margin: 3px 0px;
+    }
+
+.textoShopping {
+    margin-left: 20px;
+}
+
+    .textoShopping > p {
+        font-size: 13px;
+        margin-left: 0px;
+        color: rgba(37, 37, 37, 0.849);
+    }
+/* detalle */
+.detallePago {
+    width: 275px;
+    height: 200px;
+    margin-left: 44px;
+    margin-top: 20px;
+    background-color: aqua;
+    border-radius: 10px;
+}
+
+    .detallePago > h2, p, .separacion, .ComprarShopping {
+        margin-left: 20px;
+        margin-top: 10px;
+    }
+
+.separacion {
+    height: 1px;
+    width: 235px;
+    background-color: black;
+}
+
+.ComprarShopping {
+    display: inline-block;
+    text-decoration: none;
+    border: 1px solid black;
+    width: 200px;
+    height: 40px;
+    text-align: center;
+    border-radius: 25px;
+}
+
+/* 
+modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    opacity: 0; /* Establecer opacidad inicial en 0 */
+    transition: opacity 0.3s ease; /* Agregar transición de opacidad */
+}
+
+    .modal.show {
+        display: block;
+        opacity: 1; /* Establecer opacidad en 1 cuando se muestra */
+    }
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px;
+    transform: translateY(20px); /* Agregar desplazamiento inicial */
+    opacity: 0; /* Establecer opacidad inicial en 0 */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Agregar transiciones */
+}
+
+.modal.show .modal-content {
+    transform: translateY(0); /* Desplazamiento hacia arriba */
+    opacity: 1; /* Establecer opacidad en 1 cuando se muestra */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+
+/* 
+  ventana modal */
+.modalP {
+    margin: 10px 10px;
+}
+
+.comprarShoppingModal {
+    display: inline-block;
+    width: 100%;
+    text-decoration: none;
+    text-align: center;
+    height: 30px;
+    padding: 10px 0px 5px 0px;
+    background-color: whitesmoke;
+    margin-top: 10px;
+    border-radius: 25px;
+    border: 1px solid black;
+    color: black;
+}
+
+    .comprarShoppingModal:hover {
+        background-color: rgba(0, 0, 0, 0.842);
+        color: whitesmoke;
+    }
+
+.btnModal {
+    padding: 10px;
+    width: 55px;
+    height: 55px;
+    position: sticky;
+    top: 2%;
+    left: 2%;
+    border-radius: 50%;
+    background-color: whitesmoke;
+    border: 1px solid whitesmoke;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.425);
+    cursor: pointer;
+}
+
+    .btnModal:hover {
+        background-color: rgba(0, 0, 0, 0.39);
+    }
+
+    .btnModal > i {
+        font-size: 20px;
+    }

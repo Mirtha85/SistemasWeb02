@@ -2,43 +2,51 @@
 <h3 class="my-5">
     Shopping cart
 </h3>
+<button class="btnModal" onclick="openModal()"><i class="bi bi-bag-check-fill"></i></button>
 
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Total</h2>
+        <p class="modalP">@Model.ShoppingCartTotal.ToString("c")</p>
+        <hr>
+        <a class="comprarShoppingModal" asp-controller="Order" asp-action="Checkout">Comprar</a>
 
-<div class="row gx-3">
-    <div class="col-8">
-        @foreach (var line in Model.ShoppingCart.ShoppingCartItems)
-        {
-            <div class="card shopping-cart-card mb-2">
-                <div class="row">
-                    <div class="col-md-4">
-                        <img src="@line.Producto.imagen" class="img-fluid rounded-start p-2" alt="@line.Producto.productoNombre">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-text">@line.Amount x @line.Producto.productoNombre</h5>
-                            <div class="d-flex justify-content-between">
-                                <h6>@line.Producto.detalle</h6>
-                                <h2>@line.Producto.precio.ToString("c")</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        }
-    </div>
-    <div class="col-4">
-        <div class="card shopping-cart-card p-3">
-            <div class="row">
-                <h4 class="col">Total:</h4>
-                <h4 class="col text-end">@Model.ShoppingCartTotal.ToString("c")</h4>
-            </div>
-            <hr />
-
-            <div class="text-center d-grid">
-                <a class="btn btn-secondary" asp-controller="Order" asp-action="Checkout"><h4>Check out now!</h4></a>
-                
-            </div>
-        </div>
     </div>
 </div>
+
+<div class="ContenedorShopping">
+    @foreach (var line in Model.ShoppingCart.ShoppingCartItems)
+    {
+        <div class="detalleProducto">
+            <div class="imagenShopping">
+                <img src="~/imagenes/@line.Producto.imagen" alt="">
+            </div>
+            <div class="textoShopping">
+                <h3>@line.Producto.productoNombre</h3>
+                <p>Cantidad : @line.Amount<br>Precio : @line.Producto.precio</p>
+            </div>
+        </div>
+    }
+
+    
+</div>
+
+
+
+<script>
+    function openModal() {
+        var modal = document.getElementById("myModal");
+        modal.classList.add("show"); // Agregar la clase "show" para mostrar la ventana modal suavemente
+      }
+
+      function closeModal() {
+        var modal = document.getElementById("myModal");
+        modal.classList.remove("show"); // Quitar la clase "show" para cerrar la ventana modal suavemente
+      }
+
+      // Resto del código igual
+</script>
+
+
 
