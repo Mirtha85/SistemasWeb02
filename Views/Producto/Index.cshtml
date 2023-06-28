@@ -1,18 +1,34 @@
 ﻿@using SistemasWeb01.ViewModels
 @model ProductoListViewModel
-<p class="aProduct">
+@*<p class="aProduct">
     <a asp-action="Agregar" class="aNewProduct">Create New Product</a>
 </p>
-
-<div id="categorias">
+*@
+@*<div id="categorias">
     <button class="btn-categoria btn-todos" data-id="todos">Mostrar Todos</button>
     @foreach (var categoria in Model.categorias)
     {
         <button class="btn-categoria" data-id="@categoria.categoriaId">@categoria.categoriaNombre</button>
     }
+</div>*@
+<h2>Categoria</h2>
+<div class="Cat">
+    <a asp-action="Agregar" class="btnAgregar"><i class="bi bi-plus"></i> <p>Agregar</p></a>
 </div>
 
-
+<div class="contenedorCategoria">
+    @foreach (var categoria in Model.categorias)
+    {
+        <a class="urlA" data-id="@categoria.categoriaId">
+            <div class="Categoria">
+                <div class="circulo">
+                    <i class="bi bi-headset"></i>
+                </div>
+                <p class="textoCategoria">@categoria.categoriaNombre</p>
+            </div>
+        </a>
+    }
+</div>
 
 <div class="contenedor">
     @foreach (var producto in Model.productos)
@@ -24,6 +40,20 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function () {
+        $('.urlA').click(function (e) {
+            e.preventDefault(); // Evita la acción predeterminada del enlace
+            var categoriaId = $(this).data('id');
+            if (categoriaId === 'todos') {
+                $('.widget').show();
+            } else {
+                $('.widget').hide();
+                $('.widget[data-categoria="' + categoriaId + '"]').show();
+            }
+        });
+    });
+</script>
+@*<script>
+    $(document).ready(function () {
         $('.btn-categoria').click(function () {
             var categoriaId = $(this).data('id');
             if (categoriaId === 'todos') {
@@ -34,8 +64,4 @@
             }
         });
     });
-</script>
-<script>
-    ScrollReveal().reveal('.headline', { duration: 2000 });
-    ScrollReveal().reveal('.widget', { interval: 200 });
-</script>
+</script>*@

@@ -87,7 +87,7 @@
                         // aqui nombraremos
                         var span = $('<span>'+producto.precio+'</span>');
                         var fondo = $('<div class="fondo"><img src = "/imagenes/'+producto.imagen+'"></div>');
-                        var texto = $('<div class="texto"><p><a class="textTarjeta" href="/Producto/Details/' + producto.productoId + '" >' + producto.productoNombre + '</a></p><p>Categoria: ' + producto.productoId + '</p><a class="btnTarjeta" href="/ShoppingCart/AddToShoppingCart?ProductoId=' + producto.productoId + '">Comprar</a></div>')
+                        var texto = $('<div class="texto"><p><a class="textTarjeta" href="/Producto/Details/' + producto.productoId + '" >' + producto.productoNombre + '</a></p><p>Categoria: ' + producto.productoId + '</p><a class="btnTarjeta" href="/ShoppingCart/AddToShoppingCart?ProductoId=' + producto.productoId + '"><i class="bi bi-cart3"></i> Comprar</a></div>')
                         //var texto = $('<div class="texto"><p><a class="textTarjeta" asp-controller="producto" asp-action="Details" asp-route-id="'+producto.productoId+'">' +producto.productoNombre+'</a></p><p> Categoria :' +producto.Categoria.categoriaNombre+'</p> <a class= "btnTarjeta" asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-productoId="' +producto.productoId+ '" > <i class="bi bi-cart3" > </i> Comprar </a> </div>');
                         //var fondo = $('<div class="fondo">');
                         //var texto = $('<div class="texto">');

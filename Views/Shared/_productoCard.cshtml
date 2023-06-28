@@ -1,7 +1,7 @@
 ﻿@model producto
 
 
-<div class="tarjeta" data-categoria="@Model.CategoriaId">
+<div class="tarjeta widget" data-categoria="@Model.CategoriaId">
     <span>80Bs</span>
     <div class="fondo">
         <img src="~/imagenes/@Model.imagen" alt="">
@@ -23,7 +23,3 @@
     </div>
 </div>
 
-<script>
-    ScrollReveal().reveal('.headline', { duration: 2000 });
-    ScrollReveal().reveal('.widget', { interval: 200 });
-</script>
