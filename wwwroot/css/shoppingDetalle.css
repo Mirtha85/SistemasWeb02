@@ -44,41 +44,16 @@
     margin-left: 20px;
     margin-top:10px;
 }
-
+.textoShopping > h3{
+    width:100%;
+    display:inline-block;
+    height:25px;
+    overflow:hidden;
+}
 .textoShopping > p {
     font-size: 13px;
     margin: -6px 0px 0px 0px !important;
     color: rgba(168, 166, 166, 0.85) !important;
-}
-/* detalle */
-.detallePago {
-    width: 275px;
-    height: 200px;
-    margin-left: 44px;
-    margin-top: 20px;
-    background-color: aqua;
-    border-radius: 10px;
-}
-
-    .detallePago > h2, p, .separacion, .ComprarShopping {
-        margin-left: 20px;
-        margin-top: 10px;
-    }
-
-.separacion {
-    height: 1px;
-    width: 235px;
-    background-color: black;
-}
-
-.ComprarShopping {
-    display: inline-block;
-    text-decoration: none;
-    border: 1px solid black;
-    width: 200px;
-    height: 40px;
-    text-align: center;
-    border-radius: 25px;
 }
 
 /* 
@@ -113,6 +88,9 @@ modal */
     transform: translateY(20px); /* Agregar desplazamiento inicial */
     opacity: 1; /* Establecer opacidad inicial en 0 */
     transition: transform 0.3s ease, opacity 0.3s ease; /* Agregar transiciones */
+}
+.modal-content1 > h2{
+    margin:0px !important;
 }
 
 .modal.show .modal-content {
@@ -182,3 +160,8 @@ modal */
     .btnModal > i {
         font-size: 20px;
     }
+
+/* arreglos */
+.titulo-ShoppingCart{
+    margin-left: 3rem;
+}
