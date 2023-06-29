@@ -158,8 +158,14 @@ header li:hover {
 }
 
 .cabezera.abajo {
-    position: absolute;
+    position: sticky;
+    width: 100%;
+    top: -100px;
     animation-name: abajo;
+    animation-timing-function: ease-in-out;
+    animation-duration: 0.5s;
+    z-index: 9999;
+    transition: top 1s ease;
 }
 
 .cabezera.arriba {
