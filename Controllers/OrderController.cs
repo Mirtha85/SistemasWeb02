@@ -24,6 +24,7 @@ namespace SistemasWeb01.Controllers
         public IActionResult Checkout(Order order)
         {
             var items = _shoppingCart.GetShoppingCartItems();
+            int dato = items.Count();
             _shoppingCart.ShoppingCartItems = items;
 
             if (_shoppingCart.ShoppingCartItems.Count == 0)

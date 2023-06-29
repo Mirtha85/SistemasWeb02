@@ -20,13 +20,15 @@ namespace SistemasWeb01.Controllers
         public ViewResult Index()
         {
             var items = _shoppingCart.GetShoppingCartItems();
+            ViewBag.Items = _shoppingCart.cantidadCarrito(items);
             _shoppingCart.ShoppingCartItems = items;
 
             var shoppingCartViewModel = new ShoppingCartViewModel(_shoppingCart, _shoppingCart.GetShoppingCartTotal());
 
             return View(shoppingCartViewModel);
         }
-
+        
+        
         public RedirectToActionResult AddToShoppingCart(int productoId)
         {
             var selectedProducto = _productoRepository.AllProductos.FirstOrDefault(p => p.productoId == productoId);

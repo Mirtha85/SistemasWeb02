@@ -40,6 +40,7 @@
                 <li><a asp-area="" asp-controller="Producto" asp-action="Index">Productos</a>
 
                 <li><a href="#">Contacto</a></li>
+                @*<li>@ViewBag.cantidadItems</li> para recuperar la cantidad*@
                 <partial name="_LoginPartial" />
             </ul>
 @*            este es lo nuevo de search*@
@@ -59,6 +60,7 @@
                 <div class="line"></div>
             </div>
         </nav>
+        
         <div class="menu">
             <ul class="menu-links">
                 <li><i class="bi bi-house-fill"></i><a asp-area="" asp-controller="Home" asp-action="Index">Inicio</a></li>

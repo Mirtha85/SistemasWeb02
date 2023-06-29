@@ -135,5 +135,15 @@ namespace SistemasWeb01.Models
                 .Select(c => c.Producto.precio * c.Amount).Sum();
             return total;
         }
+
+        public string cantidadCarrito(List<ShoppingCartItem> listItems)
+        {
+            int contador = 0;
+            foreach (var item in listItems)
+            {
+                contador += item.Amount;
+            }
+            return contador.ToString();
+        }
     }
 }

@@ -1,8 +1,9 @@
 ﻿@model ShoppingCartViewModel
 <h3 class="my-2 titulo-ShoppingCart">
-    Shopping cart
+    Shopping cart numeros de productos @ViewBag.Items
+
 </h3>
-<button class="btnModal" onclick="openModal()"><i class="bi bi-bag-check-fill"></i></button>
+<button class="btnModal" onclick="openModal()"><i class="bi bi-bag-check-fill"></i><div class="cantidadProductos"><p class="pContador">@ViewBag.Items</p></div></button>
 
 <div id="myModal" class="modal">
     <div class="modal-content1">

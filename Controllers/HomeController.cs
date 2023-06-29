@@ -10,12 +10,14 @@ public class HomeController : Controller
     private readonly IPieRepository _pieRepository;
     private readonly IProductoRepositorio _productoRepositorio;
     private readonly ICategoriaRepositorio _categoryRepository;
+    private readonly IShoppingCart _shoppingCart;
 
-    public HomeController(IPieRepository pieRepository, IProductoRepositorio productoRepositorio, ICategoriaRepositorio categoryRepository)
+    public HomeController(IPieRepository pieRepository, IProductoRepositorio productoRepositorio, ICategoriaRepositorio categoryRepository, IShoppingCart shoppingCart)
     {
         _pieRepository = pieRepository;
         _productoRepositorio = productoRepositorio;
         _categoryRepository = categoryRepository;
+        _shoppingCart = shoppingCart;
     }
 
     public IActionResult Index()
@@ -25,6 +27,7 @@ public class HomeController : Controller
         //return View(homeViewModel);
         ProductoListViewModel productos = new ProductoListViewModel(_categoryRepository.Categorias, _productoRepositorio.filtroDelete);
         //return View(_productoRepository.AllProductos);
+        ViewBag.cantidadItems = callCountItems();
         return View(productos);
     }
 
@@ -41,5 +44,11 @@ public class HomeController : Controller
     public IActionResult About()
     {
         return View();
+    }
+    public string callCountItems()
+    {
+        var items = _shoppingCart.GetShoppingCartItems();
+        string cantidadItems = _shoppingCart.cantidadCarrito(items);
+        return cantidadItems;
     }
 }

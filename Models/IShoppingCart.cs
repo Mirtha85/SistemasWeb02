@@ -9,5 +9,8 @@
         void ClearCart();
         decimal GetShoppingCartTotal();
         List<ShoppingCartItem> ShoppingCartItems { get; set; }
+        string cantidadCarrito(List<ShoppingCartItem> listItems);
+
+
     }
 }
