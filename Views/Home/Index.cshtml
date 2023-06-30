@@ -4,13 +4,11 @@
 
 
 <partial name="_Carousel" />
+<a class="aModal" asp-controller="ShoppingCart" asp-action="Index"><i class="bi bi-cart3"></i><div class="cantidadProductosH"><p class="pContadorH">@ViewBag.cantidadItems</p></div></a>
 
 <div class="text-center">
     <h1>Productos</h1>
-    <h5>Enjoy a weekly selection of our favorite  producto</h5>
-    <a asp-controller="Home"
-       asp-action="callCountItems">Cantidad @ViewBag.cantidadItems</a>
-    
+   
 </div>
 <div class="contenedor">
     @foreach (var producto in Model.productos)
@@ -18,17 +16,5 @@
         <partial name="_productoCard" model="producto" />
     }
 </div>
-<div class="marcas">
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-</div>
 
-<style>
-    .marcas {
-        width: 100%;
-        height: 1000px;
-        /*background-image: url(/wave-haikei.svg);*/
-        background-image:url(/agua.svg);
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-</style>
+

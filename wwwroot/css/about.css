@@ -1,0 +1,174 @@
+﻿.Acerca {
+    text-align: center;
+}
+
+.contenedores {
+    width: 90%;
+}
+
+.conteinerMision {
+    padding:10px;
+    margin: 20px 5%;
+    border: 1px solid rgba(253, 0, 0, 0.076);
+}
+
+.conteinerMision:hover {
+    border: 1px solid rgb(253,0,0);
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(253, 0, 0, 0.596);
+}
+
+.containerM {
+    margin: 10px 3%;
+    background-color: aliceblue;
+    height: 60px;
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    padding-top: 10px;
+    border-radius: 15px;
+    background: linear-gradient(to right, rgba(247, 100, 100, 0.249), rgba(255, 0, 0, 0));
+    box-shadow: -6px 0px 1px rgb(253,0,0);
+    overflow: hidden;
+}
+
+    .containerM > .iconMision, .tituloMision {
+        color: rgb(253,0,0);
+    }
+
+.textoMision {
+    width: 100%;
+    margin-left: 15px 7%;
+    text-align: center;
+}
+
+/* Vision */
+.coteinerVision {
+    padding: 10px;
+    margin: 20px 5%;
+    border: 1px solid rgba(127, 255, 155, 0.189);
+}
+
+.coteinerVision:hover {
+    border: 1px solid rgb(0, 253, 122);
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 253, 122, 0.658);
+}
+
+.containerV {
+    margin: 10px 3%;
+    background-color: aliceblue;
+    height: 60px;
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    padding-top: 10px;
+    border-radius: 15px;
+    background: linear-gradient(to right, rgba(117, 247, 100, 0.249), rgba(255, 0, 0, 0));
+    box-shadow: -6px 0px 1px rgb(0, 253, 122);
+    overflow: hidden;
+}
+
+    .containerV > .iconVision, .tituloVision {
+        color: rgb(0, 253, 122);
+    }
+
+.textoVision {
+    width: 100%;
+    margin-left: 15px 7%;
+    text-align: center;
+}
+
+@media (min-width: 1024px) {
+    /* Estilos específicos para laptops y PCs de escritorio */
+    /* Agrega aquí tus reglas de estilo */
+    .contenedores {
+        display: flex;
+        width: 90%;
+        margin: 10px 5%;
+    }
+
+    .historia {
+        display: flex;
+        margin: 10px 5%;
+        border-radius: 10px;
+        width: 90%;
+        background-color: rgba(214, 65, 65, 0.356);
+    }
+
+    .historiaP {
+        margin: 10px;
+    }
+
+    #personalImagen {
+        height: 400px;
+    }
+}
+
+@media (min-width: 769px) and (max-width :1023px) {
+
+    .historia {
+        display: flex;
+        width: 90%;
+        border-radius: 10px;
+        margin: 10px 5%;
+        background-color: rgba(214, 65, 65, 0.356);
+    }
+
+    .historiaP {
+        margin-left: 10px;
+    }
+
+    #personalImagen {
+        width: 300px;
+        height: 50%;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .historia {
+        display: flex;
+        width: 90%;
+        margin: 10px 5%;
+        border-radius: 10px;
+        background-color: rgba(214, 65, 65, 0.356);
+    }
+
+    .historiaP {
+        margin-left: 10px;
+    }
+
+    #personalImagen {
+        width: 200px;
+        height: 50%;
+    }
+
+    #historiaP1 {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .historia {
+        width: 90%;
+        margin: 10px 5%;
+        border-radius: 10px;
+        display: block;
+        background-color: rgba(214, 65, 65, 0.356);
+    }
+
+    .historiaP {
+        padding: 10px;
+        margin-left: 10px;
+        border-radius: 10px;
+    }
+
+    #personalImagen {
+        width: 100%;
+        height: 40%;
+    }
+
+    #historiaP1 {
+        display: none;
+    }
+}

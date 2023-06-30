@@ -6,6 +6,7 @@
 
 header {
     background-color: #333;
+    font-size:17px;
     color: #fff;
 }
 header ul{
@@ -156,11 +157,13 @@ header li:hover {
         opacity: 1;
     }
 }
-
+.cabezera{
+    font-size:20px;
+}
 .cabezera.abajo {
     position: sticky;
     width: 100%;
-    top: -100px;
+    top: -200px;
     animation-name: abajo;
     animation-timing-function: ease-in-out;
     animation-duration: 0.5s;
@@ -212,4 +215,31 @@ header li:hover {
 }
 #manage{
     margin-left:5px;
+}
+
+/* logotipo*/
+.logo{
+    width:200px;
+    height:100px;
+    display:flex;
+    justify-items:center;
+    align-items:center;
+    text-decoration:none;
+    color:white;
+}
+.logoimagen{
+    width:100px;
+    height:100px;
+}
+.logoName{
+    margin: 0px 0px 0px -20px;
+    font-size:30px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/*lupa*/
+.lupaMobil{
+    margin-left:0px !important;
+    display:inline-block;
+    width:100%;
 }

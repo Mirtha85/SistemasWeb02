@@ -5,7 +5,7 @@
 <form asp-action="Agregar" enctype="multipart/form-data" method="post" role="form">
     
     <div class="contenedorPadre">
-        <div class="contenedor">
+        <div class="contenedor123">
             <div class="form-group">
                 <label>Nombre</label>
                 <input asp-for="productoClass.productoNombre" class="form-control" />
@@ -125,9 +125,8 @@
         width: 100%;
     }
     .contenedorPadre{
-        display:grid;
-        grid-template-columns:1fr 1fr;
-        gap:10px;
+        display:flex;
     }
+    
 </style>
 

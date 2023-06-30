@@ -1,0 +1,12 @@
+﻿@media (min-width:0px) and (max-width: 480px) {
+    .contenedor123 > div{
+        display:block;
+    }
+    
+}
+@media (min-width:481px)  {
+   
+}
+.contenedorPadre {
+    margin: 0px 10px;
+}

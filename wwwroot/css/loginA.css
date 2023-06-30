@@ -1,0 +1,52 @@
+﻿#account {
+    margin: 10px 10px;
+    background-color:white;
+    border-radius:10px;
+    padding:10px;
+    box-shadow: 0px 0px 10px rgb(70,70,70);
+}
+.row {
+    width: 100%;
+    display:flex;
+    justify-content:center;
+}
+#account > h3 {
+    text-align: center;
+}
+
+.mt-5 {
+    margin-left: 10px;
+    text-align: center;
+}
+.aLogin{
+    margin-top:20px;
+}
+.aLogin  a{
+    text-decoration:none;
+}
+.aLogin > p{
+    text-align:center;
+}
+#login-submit{
+    background-color:rgb(70,70,70);
+}
+#login-submit:hover {
+    background-color: whitesmoke;
+    color:black;
+}
+
+/* Registrar Cliente*/
+#registerForm {
+    margin: 10px 10px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0px 0px 10px rgb(70,70,70);
+}
+#registerForm > h3{
+    text-align:center;
+}
+#registerSubmit:hover {
+    background-color: whitesmoke;
+    color: black;
+}

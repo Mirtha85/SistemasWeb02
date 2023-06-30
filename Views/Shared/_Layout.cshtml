@@ -14,9 +14,14 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/cards.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/loginA.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/RegistrarProductos.css" asp-append-version="true" />
+
     <link rel="stylesheet" href="~/css/categoria.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/shoppingDetalle.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/productos.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/about.css" asp-append-version="true" />
+
     <link rel="stylesheet" href="~/css/navCarrusel.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/Tarjetas.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/barra_navegacion.css" asp-append-version="true" />
@@ -33,26 +38,27 @@
 <body>
     <header class="cabezera">
         <nav class="navbar">
-            <div class="logo">Logo</div>
+            <a asp-controller="Home" asp-action="Index" class="logo">
+                <img  class="logoimagen" src="~/img/logotipo copia.png" alt="">
+                <p class="logoName">CT</p>
+            </a>
             <ul class="nav-links">
                 <li><a asp-area="" asp-controller="Home" asp-action="Index">Inicio</a></li>
                 <li><a asp-area="" asp-controller="Home" asp-action="About">Acerca</a></li>
                 <li><a asp-area="" asp-controller="Producto" asp-action="Index">Productos</a>
 
                 <li><a href="#">Contacto</a></li>
+                <li >
+                    <a  asp-controller="Producto" asp-action="Search">
+                        
+                        Buscar
+                    </a>
+                </li>
                 @*<li>@ViewBag.cantidadItems</li> para recuperar la cantidad*@
                 <partial name="_LoginPartial" />
             </ul>
 @*            este es lo nuevo de search*@
-            <ul class="navbar-nav mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" asp-controller="Producto" asp-action="Search">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                        </svg>
-                    </a>
-                </li>
-            </ul>
+            
 
             <div class="hamburger">
                 <div class="line"></div>
@@ -67,7 +73,14 @@
                 <li><i class="bi bi-people-fill"></i><a asp-area="" asp-controller="Home" asp-action="About">Acerca</a></li>
                 <li><i class="bi bi-earbuds"></i><a asp-area="" asp-controller="Producto" asp-action="Index">Productos</a>
                 <li><i class="bi bi-person-vcard-fill"></i><a href="#">Contacto</a></li>
-                
+                <li >
+                    <a class="lupaMobil"  asp-controller="Producto" asp-action="Search">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                        </svg>
+                        Busqueda
+                    </a>
+                </li>
             </ul>
             <hr/>
             <ul class="loginC menu-links">
